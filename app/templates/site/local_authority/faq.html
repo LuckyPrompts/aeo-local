@@ -1,0 +1,14 @@
+<html>
+<head>
+  <title>FAQ | {{ niche_title }}</title>
+</head>
+<body>
+  <h1>Frequently Asked Questions</h1>
+
+  {% for item in faqs %}
+    <h2>{{ item.question }}</h2>
+    <p>{{ item.answer }}</p>
+  {% endfor %}
+
+</body>
+</html>

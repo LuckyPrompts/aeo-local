@@ -1,0 +1,33 @@
+<html>
+<head>
+
+<title>{{ niche_title }}</title>
+
+<script type="application/ld+json">
+{{ schema }}
+</script>
+
+</head>
+
+<body>
+
+<h1>{{ niche_title }}</h1>
+
+<p>{{ intro }}</p>
+
+<h2>Neighborhoods</h2>
+
+<ul>
+
+{% for n in neighborhoods %}
+<li>{{ n }}</li>
+{% endfor %}
+
+</ul>
+
+<h2>About {{ name }}</h2>
+
+<p>{{ about }}</p>
+
+</body>
+</html>

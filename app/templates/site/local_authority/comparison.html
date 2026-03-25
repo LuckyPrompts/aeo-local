@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>{{ title }}</title>
+</head>
+<body>
+  <h1>{{ title }}</h1>
+  <p>{{ summary }}</p>
+
+  <h2>{{ neighborhood_a }} is best for</h2>
+  <p>{{ neighborhood_a_best_for }}</p>
+
+  <h2>{{ neighborhood_b }} is best for</h2>
+  <p>{{ neighborhood_b_best_for }}</p>
+
+  <h2>Key differences</h2>
+  <ul>
+    {% for item in key_differences %}
+      <li>{{ item }}</li>
+    {% endfor %}
+  </ul>
+
+  <h2>FAQ</h2>
+  {% for item in faq %}
+    <h3>{{ item.question }}</h3>
+    <p>{{ item.answer }}</p>
+  {% endfor %}
+</body>
+</html>

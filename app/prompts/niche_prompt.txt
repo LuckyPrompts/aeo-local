@@ -1,0 +1,19 @@
+You are helping position a real estate agent for AI-first discovery.
+
+Agent name: {name}
+Brokerage: {brokerage}
+Primary market: {primary_market}
+Neighborhoods: {neighborhoods}
+Target clients: {target_clients}
+Price range: {price_range}
+Tone: {tone}
+Value propositions: {value_props}
+
+Return ONLY valid JSON.
+
+{{
+  "primary_niche": "",
+  "backup_niche": "",
+  "rationale": "",
+  "intro": ""
+}}

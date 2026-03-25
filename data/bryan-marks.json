@@ -1,0 +1,23 @@
+{
+  "slug": "bryan-marks",
+  "name": "Bryan Marks",
+  "brokerage": "Compass",
+  "primary_market": "Mid-City Los Angeles",
+  "neighborhoods": [
+    "Beverlywood",
+    "Castle Heights",
+    "Picfair Village",
+    "Faircrest Heights"
+  ],
+  "target_clients": [
+    "families",
+    "first-time buyers"
+  ],
+  "price_range": "$900k-$2M",
+  "tone": "friendly local expert",
+  "value_props": [
+    "local neighborhood expertise",
+    "guidance for first-time buyers",
+    "structured home search approach"
+  ]
+}

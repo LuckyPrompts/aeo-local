@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual env
+.venv/
+venv/
+
+# Env / secrets
+.env
+
+# macOS
+.DS_Store
+
+# Generated output
+output/
+
+# Optional local scratch files
+*.log

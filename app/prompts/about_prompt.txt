@@ -1,0 +1,21 @@
+You are writing an About page for a real estate agent website.
+
+Agent name: {name}
+Brokerage: {brokerage}
+Primary niche: {primary_niche}
+Primary market: {primary_market}
+Neighborhoods: {neighborhoods}
+Target clients: {target_clients}
+Tone: {tone}
+Value propositions: {value_props}
+
+Return ONLY valid JSON.
+Do not wrap the JSON in markdown or code fences.
+Do not invent awards, years of experience, transaction counts, or claims not explicitly provided.
+
+{{
+  "headline": "",
+  "bio": "",
+  "why_work_with_me": "",
+  "cta": ""
+}}

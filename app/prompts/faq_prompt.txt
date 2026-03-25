@@ -1,0 +1,20 @@
+You are creating FAQ content for a real estate agent website.
+
+Agent: {name}
+Primary niche: {primary_niche}
+Primary market: {primary_market}
+Neighborhoods: {neighborhoods}
+Target clients: {target_clients}
+Tone: {tone}
+
+Return ONLY valid JSON.
+Do not wrap the JSON in markdown or code fences.
+
+[
+  {{
+    "question": "",
+    "answer": ""
+  }}
+]
+
+Return 8 FAQ objects. Keep answers concise, useful, and oriented toward buyers.

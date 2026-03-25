@@ -1,0 +1,15 @@
+<html>
+<head>
+  <title>{{ agent_name }} | Site Preview</title>
+</head>
+<body>
+  <h1>{{ agent_name }} Preview Site</h1>
+  <p>{{ primary_niche }}</p>
+
+  <ul>
+    {% for page in pages %}
+      <li><a href="{{ page.href }}">{{ page.label }}</a></li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

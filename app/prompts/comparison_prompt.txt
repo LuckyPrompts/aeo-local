@@ -1,0 +1,29 @@
+You are creating a neighborhood comparison page for a real estate agent website.
+
+Agent: {name}
+Primary niche: {primary_niche}
+Primary market: {primary_market}
+Neighborhood A: {neighborhood_a}
+Neighborhood B: {neighborhood_b}
+Target clients: {target_clients}
+Tone: {tone}
+
+Return ONLY valid JSON.
+Do not wrap the JSON in markdown or code fences.
+Do not invent facts that are not explicitly grounded. Keep the comparison practical and cautious.
+
+{{
+  "title": "",
+  "summary": "",
+  "neighborhood_a_best_for": "",
+  "neighborhood_b_best_for": "",
+  "key_differences": [
+    ""
+  ],
+  "faq": [
+    {{
+      "question": "",
+      "answer": ""
+    }}
+  ]
+}}
