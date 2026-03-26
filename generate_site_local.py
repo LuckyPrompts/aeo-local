@@ -9,8 +9,10 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 from ollama import Client
 
+from app.services.model_router import route_for_step
 
-DEFAULT_MODEL = "qwen3.5:9b"
+
+DEFAULT_MODEL = "mistral:7b"
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
 
 BASE_DIR = Path(__file__).parent
@@ -20,7 +22,6 @@ DEBUG_DIR = BASE_DIR / "debug"
 
 OUTPUT_DIR.mkdir(exist_ok=True)
 DEBUG_DIR.mkdir(exist_ok=True)
-
 
 ###########################################
 # LLM
@@ -324,9 +325,46 @@ def build_schema(profile, home_data):
 # GENERATE
 ###########################################
 
-def generate_site(profile_path, version, model):
+def build_site_html(profile: dict, model: str = None) -> dict:
+    """
+    Runs generation using the existing prompt pipeline
+    but returns structured JSON artifacts instead of only writing files.
 
-    llm = OllamaLLM(model=model)
+    Used by agent workflow.
+    """
+
+    steps_config = [
+        ("home",       home_prompt,       2000),
+        ("faq",        faq_prompt,        3000),
+        ("about",      about_prompt,      2000),
+        ("comparison", comparison_prompt, 3000),
+    ]
+
+    results = {}
+
+    for name, prompt_fn, max_tokens in steps_config:
+        selection = route_for_step(name, override=model)
+        llm = OllamaLLM(model=selection.model)
+
+        print(
+            f"  [{name}] routed → model={selection.model} "
+            f"task_type={selection.task_type} reason={selection.reason}"
+        )
+
+        result, _ = run_step(
+            name,
+            llm,
+            prompt_fn,
+            profile,
+            max_tokens
+        )
+
+        if result is not None:
+            results[name] = result
+
+    return results
+
+def generate_site(profile_path, version, model):
     profile = load_json(profile_path)
 
     ts = datetime.utcnow().strftime("%Y%m%d-%H%M%S")
@@ -348,11 +386,25 @@ def generate_site(profile_path, version, model):
 
     results = {}
 
-    print(f"\nStarting generation — model: {model}\n")
+    print(f"\nStarting generation — model override: {model or 'router'}\n")
 
     for name, prompt_fn, max_tokens in steps_config:
+        selection = route_for_step(name, override=model)
+        llm = OllamaLLM(model=selection.model)
+
+        print(
+            f"  [{name}] routed → model={selection.model} "
+            f"task_type={selection.task_type} reason={selection.reason}"
+        )
+
         result, step = run_step(name, llm, prompt_fn, profile, max_tokens)
+
+        step["model_used"] = selection.model
+        step["task_type"] = selection.task_type
+        step["route_reason"] = selection.reason
+
         report["steps"].append(step)
+
         if result is not None:
             results[name] = result
 
@@ -362,11 +414,9 @@ def generate_site(profile_path, version, model):
         out_dir = OUTPUT_DIR / version / ts
         out_dir.mkdir(parents=True, exist_ok=True)
 
-        # Save JSON artifacts
         for name, data in results.items():
             save_json(out_dir / f"{name}.json", data)
 
-        # Render HTML pages
         neighborhoods = profile.get("neighborhoods", [])
         a = neighborhoods[0] if len(neighborhoods) > 0 else "Neighborhood A"
         b = neighborhoods[1] if len(neighborhoods) > 1 else "Neighborhood B"
@@ -398,22 +448,23 @@ def generate_site(profile_path, version, model):
 
         if "about" in results:
             render_html("about.html", {
-                "headline":        results["about"].get("headline", ""),
-                "bio":             results["about"].get("bio", ""),
+                "headline": results["about"].get("headline", ""),
+                "bio": results["about"].get("bio", ""),
                 "why_work_with_me": results["about"].get("why_work_with_me", ""),
-                "cta":             results["about"].get("cta", ""),
+                "cta": results["about"].get("cta", ""),
             }, out_dir / "about.html")
 
         if "comparison" in results:
-            render_html("comparison.html",
+            render_html(
+                "comparison.html",
                 results["comparison"],
                 out_dir / comparison_filename
             )
 
         render_html("site_index.html", {
-            "agent_name":    profile.get("name", ""),
+            "agent_name": profile.get("name", ""),
             "primary_niche": profile.get("primary_market", ""),
-            "pages":         pages,
+            "pages": pages,
         }, out_dir / "site-index.html")
 
         print(f"\nSaved to: {out_dir}")
