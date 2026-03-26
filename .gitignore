@@ -19,3 +19,9 @@ output/
 
 # Optional local scratch files
 *.log
+.env
+__pycache__/
+*.pyc
+.DS_Store
+output/
+.venv/

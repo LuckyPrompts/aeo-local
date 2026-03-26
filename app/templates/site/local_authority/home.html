@@ -1,33 +1,73 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-
-<title>{{ niche_title }}</title>
-
-<script type="application/ld+json">
-{{ schema }}
-</script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ niche_title }}</title>
+  <script type="application/ld+json">{{ schema | safe }}</script>
 </head>
-
 <body>
 
-<h1>{{ niche_title }}</h1>
+  <nav>
+    <div>{{ name }}</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="faq.html">FAQ</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
 
-<p>{{ intro }}</p>
+  <section>
+    <p>Mid-City Los Angeles</p>
+    <h1>{{ niche_title }}</h1>
+    <p>{{ intro }}</p>
+    <a href="contact.html">Work With Bryan</a>
+  </section>
 
-<h2>Neighborhoods</h2>
+  <section>
+    <h2>Neighborhoods</h2>
+    <p>Hyperlocal expertise across Mid-City LA</p>
+    <ul>
+      {% for n in neighborhoods %}
+      <li>{{ n }}</li>
+      {% endfor %}
+    </ul>
+  </section>
 
-<ul>
+  <section>
+    <div>Photo</div>
+    <div>
+      <h2>About</h2>
+      <h3>{{ name }}</h3>
+      <p>{{ about }}</p>
+      <a href="about.html">Read full bio →</a>
+    </div>
+  </section>
 
-{% for n in neighborhoods %}
-<li>{{ n }}</li>
-{% endfor %}
+  <section>
+    <div>
+      <h3>Resources</h3>
+      <a href="faq.html">Buyer FAQ</a>
+      <p>Common questions answered</p>
+    </div>
 
-</ul>
+    <div>
+      <h3>Compare</h3>
+      <a href="beverlywood-vs-castle-heights.html">Beverlywood vs Castle Heights</a>
+      <p>Side by side neighborhood guide</p>
+    </div>
 
-<h2>About {{ name }}</h2>
+    <div>
+      <h3>Contact</h3>
+      <a href="contact.html">Work With Bryan</a>
+      <p>Start your home search today</p>
+    </div>
+  </section>
 
-<p>{{ about }}</p>
+  <footer>
+    <p>{{ name }} · Compass · Mid-City Los Angeles</p>
+    <p>{{ niche_title }}</p>
+  </footer>
 
 </body>
 </html>
