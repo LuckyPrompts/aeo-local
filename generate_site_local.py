@@ -10,7 +10,7 @@ from jinja2 import Environment, FileSystemLoader
 from ollama import Client
 
 from app.services.model_router import route_for_step
-
+from local_ai_core.llm.ollama_llm import OllamaLLM
 
 DEFAULT_MODEL = "mistral:7b"
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
@@ -22,42 +22,6 @@ DEBUG_DIR = BASE_DIR / "debug"
 
 OUTPUT_DIR.mkdir(exist_ok=True)
 DEBUG_DIR.mkdir(exist_ok=True)
-
-###########################################
-# LLM
-###########################################
-
-class OllamaLLM:
-    def __init__(self, model=DEFAULT_MODEL):
-        self.client = Client(host=OLLAMA_HOST)
-        self.model = model
-
-    def generate(self, prompt, max_tokens=2000):
-        response = self.client.chat(
-            model=self.model,
-            messages=[
-                {
-                    "role": "system",
-                    "content": (
-                        "You generate structured marketing website content."
-                        " Return valid JSON only."
-                        " Do not include markdown code fences."
-                        " Do not include explanation."
-                        " Do not include any text before or after the JSON."
-                    )
-                },
-                {
-                    "role": "user",
-                    "content": prompt
-                }
-            ],
-            options={
-                "temperature": 0,
-                "num_predict": max_tokens
-            }
-        )
-        return response["message"]["content"]
-
 
 ###########################################
 # PARSE

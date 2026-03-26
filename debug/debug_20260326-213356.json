@@ -1,0 +1,56 @@
+{
+  "ts": "20260326-213356",
+  "model": "mistral:7b",
+  "profile": "data/profiles/bryan-marks.json",
+  "version": "local-test",
+  "steps": [
+    {
+      "name": "home",
+      "success": true,
+      "error": null,
+      "traceback": null,
+      "raw_length": 846,
+      "raw_tail": "in helping families and first-time buyers find their dream homes in Mid-City Los Angeles. With a focus on the $900k-$2M price range, Bryan offers local neighborhood expertise, guidance for first-time buyers, and a structured home search approach to ensure a smooth and successful home buying experience.\",\n  \"neighborhoods\": [\"Beverlywood\", \"Castle Heights\", \"Picfair Village\", \"Faircrest Heights\"]\n}",
+      "max_tokens": 2000,
+      "model_used": "mistral:7b",
+      "task_type": "manual_override",
+      "route_reason": "manual override from caller"
+    },
+    {
+      "name": "faq",
+      "success": true,
+      "error": null,
+      "traceback": null,
+      "raw_length": 1344,
+      "raw_tail": "hts.\"\n    },\n    {\n      \"question\": \"What price range does Bryan Marks typically work with?\",\n      \"answer\": \"Bryan Marks primarily works with properties priced between $900k and $2M in Mid-City Los Angeles.\"\n    },\n    {\n      \"question\": \"Who are Bryan Marks' typical clients?\",\n      \"answer\": \"Bryan Marks primarily caters to families and first-time buyers in Mid-City Los Angeles.\"\n    }\n  ]\n}",
+      "max_tokens": 3000,
+      "model_used": "mistral:7b",
+      "task_type": "manual_override",
+      "route_reason": "manual override from caller"
+    },
+    {
+      "name": "about",
+      "success": true,
+      "error": null,
+      "traceback": null,
+      "raw_length": 570,
+      "raw_tail": "d, Castle Heights, Picfair Village, and Faircrest Heights. With a focus on families and first-time buyers, he offers local neighborhood expertise, guidance, and a structured home search approach.\",\n  \"why_work_with_me\": \"Work with Bryan for a personalized, stress-free real estate experience tailored to your needs.\",\n  \"cta\": \"Start your Mid-City Los Angeles real estate journey with Bryan today!\"\n}",
+      "max_tokens": 2000,
+      "model_used": "mistral:7b",
+      "task_type": "manual_override",
+      "route_reason": "manual override from caller"
+    },
+    {
+      "name": "comparison",
+      "success": true,
+      "error": null,
+      "traceback": null,
+      "raw_length": 1891,
+      "raw_tail": "ment?\",\n      \"answer\": \"Both neighborhoods are family-friendly, but Beverlywood may offer a wider variety of amenities and activities for families.\"\n    },\n    {\n      \"question\": \"How do the populations of Beverlywood and Castle Heights compare?\",\n      \"answer\": \"Beverlywood has a higher population density compared to Castle Heights, which offers a more secluded living environment.\"\n    }\n  ]\n}",
+      "max_tokens": 3000,
+      "model_used": "mistral:7b",
+      "task_type": "manual_override",
+      "route_reason": "manual override from caller"
+    }
+  ]
+}

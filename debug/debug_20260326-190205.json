@@ -1,0 +1,44 @@
+{
+  "ts": "20260326-190205",
+  "model": "qwen3.5:9b",
+  "profile": "data/profiles/bryan-marks.json",
+  "version": "local-test",
+  "steps": [
+    {
+      "name": "home",
+      "success": true,
+      "error": null,
+      "traceback": null,
+      "raw_length": 775,
+      "raw_tail": "a Compass agent dedicated to serving families and first-time buyers in Mid-City LA. With deep roots in this community, I bring structured home search strategies and genuine local expertise to every transaction. From $900k to $2M, I ensure you find the perfect fit without the stress.\",\n  \"neighborhoods\": [\n    \"Beverlywood\",\n    \"Castle Heights\",\n    \"Picfair Village\",\n    \"Faircrest Heights\"\n  ]\n}",
+      "max_tokens": 2000
+    },
+    {
+      "name": "faq",
+      "success": true,
+      "error": null,
+      "traceback": null,
+      "raw_length": 2163,
+      "raw_tail": "an Marks suitable for families moving to Mid-City LA?\",\n      \"answer\": \"Absolutely. He understands family priorities like school districts and community safety. His expertise covers neighborhoods like Faircrest Heights where families thrive. Whether you need a starter home or an upgrade, his friendly service ensures a smooth transition into your new neighborhood in Los Angeles today.\"\n    }\n  ]\n}",
+      "max_tokens": 3000
+    },
+    {
+      "name": "about",
+      "success": false,
+      "error": "EMPTY_RESPONSE",
+      "traceback": "Traceback (most recent call last):\n  File \"/Users/lucky/Documents/repo/aeo-local/generate_site_local.py\", line 291, in run_step\n    result = parse_json(raw)\n  File \"/Users/lucky/Documents/repo/aeo-local/generate_site_local.py\", line 73, in parse_json\n    raise ValueError(\"EMPTY_RESPONSE\")\nValueError: EMPTY_RESPONSE\n",
+      "raw_length": 0,
+      "raw_tail": "",
+      "max_tokens": 2000
+    },
+    {
+      "name": "comparison",
+      "success": true,
+      "error": null,
+      "traceback": null,
+      "raw_length": 1611,
+      "raw_tail": "Heights?\",\n      \"answer\": \"Generally, Beverlywood commands a slightly higher price per square foot due to its established nature, but both fit within the $900k-$2M range.\"\n    },\n    {\n      \"question\": \"Can I get a private tour of both areas?\",\n      \"answer\": \"Absolutely! Contact me directly to schedule personalized showings that highlight the unique character of each neighborhood.\"\n    }\n  ]\n}",
+      "max_tokens": 3000
+    }
+  ]
+}

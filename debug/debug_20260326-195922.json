@@ -1,0 +1,56 @@
+{
+  "ts": "20260326-195922",
+  "model": "mistral:7b",
+  "profile": "data/profiles/bryan-marks.json",
+  "version": "local-test",
+  "steps": [
+    {
+      "name": "home",
+      "success": true,
+      "error": null,
+      "traceback": null,
+      "raw_length": 1177,
+      "raw_tail": "rhood he serves. As a compassionate and approachable agent, Bryan is committed to providing exceptional service to his clients, ensuring a smooth and successful home-buying experience. Contact Bryan today to start your journey towards finding your dream home in Mid-City Los Angeles.\",\n  \"neighborhoods\": [\n    \"Beverlywood\",\n    \"Castle Heights\",\n    \"Picfair Village\",\n    \"Faircrest Heights\"\n  ]\n}",
+      "max_tokens": 2000,
+      "model_used": "mistral:7b",
+      "task_type": "manual_override",
+      "route_reason": "manual override from caller"
+    },
+    {
+      "name": "faq",
+      "success": true,
+      "error": null,
+      "traceback": null,
+      "raw_length": 1259,
+      "raw_tail": "uestion\": \"What neighborhoods does Bryan Marks cover in Mid-City Los Angeles?\",\n      \"answer\": \"Bryan Marks covers Beverlywood, Castle Heights, Picfair Village, and Faircrest Heights in Mid-City Los Angeles.\"\n    },\n    {\n      \"question\": \"Who are Bryan Marks' typical clients?\",\n      \"answer\": \"Bryan Marks primarily works with families and first-time buyers in Mid-City Los Angeles.\"\n    }\n  ]\n}",
+      "max_tokens": 3000,
+      "model_used": "mistral:7b",
+      "task_type": "manual_override",
+      "route_reason": "manual override from caller"
+    },
+    {
+      "name": "about",
+      "success": true,
+      "error": null,
+      "traceback": null,
+      "raw_length": 529,
+      "raw_tail": "ert at Compass, specializes in Beverlywood, Castle Heights, Picfair Village, and Faircrest Heights. With a focus on families and first-time buyers, he offers local neighborhood expertise, guidance, and a structured home search approach.\",\n  \"why_work_with_me\": \"Work with Bryan for a personalized, stress-free home buying experience tailored to your needs.\",\n  \"cta\": \"Start Your Home Search Today\"\n}",
+      "max_tokens": 2000,
+      "model_used": "mistral:7b",
+      "task_type": "manual_override",
+      "route_reason": "manual override from caller"
+    },
+    {
+      "name": "comparison",
+      "success": true,
+      "error": null,
+      "traceback": null,
+      "raw_length": 1866,
+      "raw_tail": "\": \"Both neighborhoods offer family-friendly environments, but Castle Heights may be a better fit due to its quieter atmosphere and larger lot sizes.\"\n    },\n    {\n      \"question\": \"What is the nightlife scene like in Beverlywood compared to Castle Heights?\",\n      \"answer\": \"Beverlywood offers a more vibrant nightlife scene with numerous restaurants, bars, and entertainment options.\"\n    }\n  ]\n}",
+      "max_tokens": 3000,
+      "model_used": "mistral:7b",
+      "task_type": "manual_override",
+      "route_reason": "manual override from caller"
+    }
+  ]
+}
